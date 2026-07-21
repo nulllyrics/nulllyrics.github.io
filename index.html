@@ -1,97 +1,134 @@
 export default function PortfolioPage() {
-  const sections = [
-    { id: 'about', title: '自己紹介' },
-    { id: 'artist', title: '歌手布教' },
-    { id: 'books', title: '本おきば' },
-    { id: 'works', title: '制作物' },
-    { id: 'study', title: '勉強' },
+  const menu = [
+    { id: 'about', title: '自己紹介', icon: '👤' },
+    { id: 'artist', title: '歌手布教', icon: '🎤' },
+    { id: 'books', title: '本おきば', icon: '📚' },
+    { id: 'works', title: '制作物', icon: '💻' },
+    { id: 'study', title: '勉強', icon: '🧠' },
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
-      <div className="fixed inset-0 bg-gradient-to-br from-indigo-950 via-black to-purple-950 opacity-90" />
+    <div className='bg-black text-white min-h-screen overflow-x-hidden'>
+      <div className='fixed inset-0 bg-gradient-to-br from-black via-indigo-950 to-purple-950'>
+        <div className='absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.35),transparent_40%)]' />
+      </div>
+      <nav className='fixed top-0 w-full z-50 backdrop-blur-xl bg-black/20 border-b border-white/10'>
+        <div className='max-w-7xl mx-auto flex justify-between px-6 py-4'>
+          <span className='font-bold tracking-widest'>SHUSUKE LAB</span>
+          <div className='hidden md:flex gap-6'>
+            {menu.map(item => (
+              <a key={item.id} href={`#${item.id}`} className='hover:text-cyan-300 transition'>
+                {item.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      </nav>
 
-      <div className="relative z-10">
-        <header className="min-h-screen flex flex-col items-center justify-center text-center px-6">
-          <p className="tracking-[0.5em] text-purple-300 mb-4">SHUSUKE'S ROOM</p>
-          <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 text-transparent bg-clip-text">
+
+      <div className='relative z-10'>
+        <header className='min-h-screen flex flex-col justify-center items-center text-center px-6'>
+          <div className='animate-pulse text-cyan-300 mb-4'>✦ Digital Library ✦</div>
+
+
+          <h1 className='text-7xl md:text-9xl font-black bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 text-transparent bg-clip-text'>
             知識と創作のアーカイブ
           </h1>
-          <p className="mt-8 max-w-2xl text-gray-300 text-lg">
-            歌、本、制作物、勉強記録を置くための個人ホームページ。
+
+
+          <p className='mt-8 max-w-3xl text-xl text-gray-300'>
+            学生 / 読書家 / 開発者。
+            音楽、本、制作物、学習記録を収集する個人研究室。
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-3 justify-center">
-            {sections.map((s) => (
+          <div className='mt-12 flex flex-wrap justify-center gap-4'>
+            {menu.map(item => (
               <a
-                key={s.id}
-                href={`#${s.id}`}
-                className="bg-white/10 backdrop-blur px-5 py-3 rounded-2xl hover:bg-white/20 transition"
+                key={item.id}
+                href={`#${item.id}`}
+                className='px-6 py-3 rounded-2xl bg-white/10 hover:bg-white/20 backdrop-blur transition hover:scale-105'
               >
-                {s.title}
+                {item.icon} {item.title}
               </a>
             ))}
           </div>
         </header>
 
-        <main className="max-w-6xl mx-auto px-6 pb-24 space-y-10">
-          <section className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-3xl bg-white/5 p-8 backdrop-blur">
-              <h2 className="text-3xl font-bold mb-4">目次</h2>
-              <ul className="space-y-2 text-gray-300">
-                <li>01. 自己紹介</li>
-                <li>02. 歌手布教</li>
-                <li>03. 本おきば</li>
-                <li>04. 制作物</li>
-                <li>05. 勉強</li>
+        <main className='max-w-7xl mx-auto px-6 pb-32 space-y-10'>
+
+
+          <section className='grid md:grid-cols-2 gap-8'>
+            <div className='rounded-3xl p-8 bg-white/5 backdrop-blur border border-white/10'>
+              <h2 className='text-3xl font-bold mb-4'>目次</h2>
+              <ul className='space-y-3 text-gray-300'>
+                <li>01｜自己紹介</li>
+                <li>02｜歌手布教</li>
+                <li>03｜本おきば</li>
+                <li>04｜制作物</li>
+                <li>05｜勉強</li>
               </ul>
             </div>
 
-            <div className="rounded-3xl bg-gradient-to-br from-purple-500/20 to-cyan-500/20 p-8">
-              <h2 className="text-3xl font-bold">Welcome</h2>
-              <p className="mt-4 text-gray-300">
-                スクロールに応じて各コンテンツを巡回するデジタル書斎をイメージ。
+            <div className='rounded-3xl p-8 bg-gradient-to-br from-cyan-500/20 to-purple-500/20'>
+              <h2 className='text-3xl font-bold'>Welcome</h2>
+              <p className='mt-4 text-gray-300'>
+                深夜の図書館とサイバー研究室を融合した世界観。
+                スクロールしながら興味の地図を巡るサイトです。
               </p>
             </div>
           </section>
 
-          <section id="about" className="rounded-3xl bg-white/5 p-8">
-            <h2 className="text-4xl font-bold mb-4">自己紹介</h2>
-            <p className="text-gray-300 leading-8">
-              秋田在住の学生。読書、音楽、プログラミング、知識収集が好き。
-              このサイトは興味のログと創作の記録を残すための場所です。
+          <section id='about' className='rounded-3xl p-10 bg-white/5 border border-white/10'>
+            <h2 className='text-5xl font-bold mb-6'>自己紹介</h2>
+            <p className='text-gray-300 leading-8'>
+              秋田在住の学生。読書・音楽・プログラミングが好き。
+              学びを積み重ね、制作物として形に残すことを楽しんでいます。
             </p>
           </section>
 
-          <section id="artist" className="rounded-3xl bg-white/5 p-8">
-            <h2 className="text-4xl font-bold mb-6">歌手布教</h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="bg-black/30 rounded-2xl p-5">Ado</div>
-              <div className="bg-black/30 rounded-2xl p-5">ヨルシカ</div>
-              <div className="bg-black/30 rounded-2xl p-5">ずっと真夜中でいいのに。</div>
+          <section id='artist' className='rounded-3xl p-10 bg-white/5 border border-white/10'>
+            <h2 className='text-5xl font-bold mb-8'>歌手布教</h2>
+            <div className='grid md:grid-cols-3 gap-6'>
+              {['Ado','ヨルシカ','ずっと真夜中でいいのに。'].map(name => (
+                <div key={name} className='group rounded-3xl bg-black/30 p-6 hover:-translate-y-2 transition'>
+                  <div className='h-40 rounded-2xl bg-gradient-to-br from-cyan-500/30 to-purple-500/30 mb-4' />
+                  <h3 className='text-2xl font-bold'>{name}</h3>
+                </div>
+              ))}
             </div>
           </section>
 
-          <section id="books" className="rounded-3xl bg-white/5 p-8">
-            <h2 className="text-4xl font-bold mb-6">本おきば</h2>
-            <p className="text-gray-300">
-              読んだ本の感想、引用、評価を蓄積するスペース。
-            </p>
+          <section id='books' className='rounded-3xl p-10 bg-white/5 border border-white/10'>
+            <h2 className='text-5xl font-bold mb-8'>本おきば</h2>
+            <div className='grid md:grid-cols-4 gap-4'>
+              {[1,2,3,4].map(book => (
+                <div key={book} className='h-56 rounded-xl bg-gradient-to-b from-amber-500 to-amber-900 hover:scale-105 transition cursor-pointer' />
+              ))}
+            </div>
           </section>
 
-          <section id="works" className="rounded-3xl bg-white/5 p-8">
-            <h2 className="text-4xl font-bold mb-6">制作物</h2>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="bg-black/30 p-5 rounded-2xl">Webアプリ</div>
-              <div className="bg-black/30 p-5 rounded-2xl">個人開発</div>
+          <section id='works' className='rounded-3xl p-10 bg-white/5 border border-white/10'>
+            <h2 className='text-5xl font-bold mb-8'>制作物</h2>
+            <div className='grid md:grid-cols-2 gap-6'>
+              <div className='p-6 rounded-3xl bg-black/30'>
+                <h3 className='text-2xl font-bold'>Portfolio Site</h3>
+                <p className='text-gray-400 mt-3'>個人ホームページ</p>
+              </div>
+              <div className='p-6 rounded-3xl bg-black/30'>
+                <h3 className='text-2xl font-bold'>Future Project</h3>
+                <p className='text-gray-400 mt-3'>今後追加予定</p>
+              </div>
             </div>
           </section>
 
-          <section id="study" className="rounded-3xl bg-white/5 p-8">
-            <h2 className="text-4xl font-bold mb-6">勉強</h2>
-            <p className="text-gray-300">
-              アルゴリズム、数学、AI、Web開発の学習記録。
-            </p>
+          <section id='study' className='rounded-3xl p-10 bg-white/5 border border-white/10'>
+            <h2 className='text-5xl font-bold mb-8'>勉強</h2>
+            <div className='space-y-4'>
+              <div className='p-5 rounded-2xl bg-black/30'>AI・機械学習</div>
+              <div className='p-5 rounded-2xl bg-black/30'>Web開発</div>
+              <div className='p-5 rounded-2xl bg-black/30'>アルゴリズム</div>
+              <div className='p-5 rounded-2xl bg-black/30'>数学</div>
+            </div>
           </section>
         </main>
       </div>
