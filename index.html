@@ -1,20 +1,100 @@
-<h2>プロフィール</h2>
+export default function PortfolioPage() {
+  const sections = [
+    { id: 'about', title: '自己紹介' },
+    { id: 'artist', title: '歌手布教' },
+    { id: 'books', title: '本おきば' },
+    { id: 'works', title: '制作物' },
+    { id: 'study', title: '勉強' },
+  ];
 
-<p>
+  return (
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+      <div className="fixed inset-0 bg-gradient-to-br from-indigo-950 via-black to-purple-950 opacity-90" />
 
-秋田大学教育文化学部
-理数教育コース
+      <div className="relative z-10">
+        <header className="min-h-screen flex flex-col items-center justify-center text-center px-6">
+          <p className="tracking-[0.5em] text-purple-300 mb-4">SHUSUKE'S ROOM</p>
+          <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 text-transparent bg-clip-text">
+            知識と創作のアーカイブ
+          </h1>
+          <p className="mt-8 max-w-2xl text-gray-300 text-lg">
+            歌、本、制作物、勉強記録を置くための個人ホームページ。
+          </p>
 
-</p>
+          <div className="mt-10 flex flex-wrap gap-3 justify-center">
+            {sections.map((s) => (
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                className="bg-white/10 backdrop-blur px-5 py-3 rounded-2xl hover:bg-white/20 transition"
+              >
+                {s.title}
+              </a>
+            ))}
+          </div>
+        </header>
 
-<h2>研究</h2>
+        <main className="max-w-6xl mx-auto px-6 pb-24 space-y-10">
+          <section className="grid md:grid-cols-2 gap-6">
+            <div className="rounded-3xl bg-white/5 p-8 backdrop-blur">
+              <h2 className="text-3xl font-bold mb-4">目次</h2>
+              <ul className="space-y-2 text-gray-300">
+                <li>01. 自己紹介</li>
+                <li>02. 歌手布教</li>
+                <li>03. 本おきば</li>
+                <li>04. 制作物</li>
+                <li>05. 勉強</li>
+              </ul>
+            </div>
 
-<ul>
+            <div className="rounded-3xl bg-gradient-to-br from-purple-500/20 to-cyan-500/20 p-8">
+              <h2 className="text-3xl font-bold">Welcome</h2>
+              <p className="mt-4 text-gray-300">
+                スクロールに応じて各コンテンツを巡回するデジタル書斎をイメージ。
+              </p>
+            </div>
+          </section>
 
-<li>数学教育</li>
+          <section id="about" className="rounded-3xl bg-white/5 p-8">
+            <h2 className="text-4xl font-bold mb-4">自己紹介</h2>
+            <p className="text-gray-300 leading-8">
+              秋田在住の学生。読書、音楽、プログラミング、知識収集が好き。
+              このサイトは興味のログと創作の記録を残すための場所です。
+            </p>
+          </section>
 
-<li>理科教育</li>
+          <section id="artist" className="rounded-3xl bg-white/5 p-8">
+            <h2 className="text-4xl font-bold mb-6">歌手布教</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="bg-black/30 rounded-2xl p-5">Ado</div>
+              <div className="bg-black/30 rounded-2xl p-5">ヨルシカ</div>
+              <div className="bg-black/30 rounded-2xl p-5">ずっと真夜中でいいのに。</div>
+            </div>
+          </section>
 
-<li>統計教育</li>
+          <section id="books" className="rounded-3xl bg-white/5 p-8">
+            <h2 className="text-4xl font-bold mb-6">本おきば</h2>
+            <p className="text-gray-300">
+              読んだ本の感想、引用、評価を蓄積するスペース。
+            </p>
+          </section>
 
-</ul>
+          <section id="works" className="rounded-3xl bg-white/5 p-8">
+            <h2 className="text-4xl font-bold mb-6">制作物</h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="bg-black/30 p-5 rounded-2xl">Webアプリ</div>
+              <div className="bg-black/30 p-5 rounded-2xl">個人開発</div>
+            </div>
+          </section>
+
+          <section id="study" className="rounded-3xl bg-white/5 p-8">
+            <h2 className="text-4xl font-bold mb-6">勉強</h2>
+            <p className="text-gray-300">
+              アルゴリズム、数学、AI、Web開発の学習記録。
+            </p>
+          </section>
+        </main>
+      </div>
+    </div>
+  );
+}
